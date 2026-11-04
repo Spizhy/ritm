@@ -104,32 +104,55 @@
   </aside>
 
   <!-- Sticky Main Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-black/85 backdrop-blur-md border-b border-zinc-800">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-lg p-1" aria-label="РИТМ — Главная">
+      <a href="#" class="flex items-center gap-2 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-lg p-1" aria-label="РИТМ — Главная">
         <span class="font-brand text-2xl tracking-widest text-white group-hover:text-red-400 transition-colors">РИТМ</span>
         <span class="font-mono text-[10px] uppercase font-semibold text-zinc-400 bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 rounded">v1.0</span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400" aria-label="Основная навигация">
-        <a href="#simulator" class="hover:text-white transition-colors">Как это работает</a>
-        <a href="#problem" class="hover:text-white transition-colors">Проблема</a>
-        <a href="#comparison" class="hover:text-white transition-colors">Было и стало</a>
-        <a href="#architecture" class="hover:text-white transition-colors">Архитектура</a>
-        <a href="#risks" class="hover:text-white transition-colors">Риски и решения</a>
-        <a href="#roadmap" class="hover:text-white transition-colors">Дорожная карта</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      <!-- Desktop Navigation Menu: Single-word, crisp, zero wrapping -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-xs xl:text-sm font-medium text-zinc-400 whitespace-nowrap" aria-label="Основная навигация">
+        <a href="#simulator" class="hover:text-white transition-colors whitespace-nowrap">Возможности</a>
+        <a href="#problem" class="hover:text-white transition-colors whitespace-nowrap">Проблема</a>
+        <a href="#comparison" class="hover:text-white transition-colors whitespace-nowrap">Сравнение</a>
+        <a href="#architecture" class="hover:text-white transition-colors whitespace-nowrap">Архитектура</a>
+        <a href="#risks" class="hover:text-white transition-colors whitespace-nowrap">Риски</a>
+        <a href="#roadmap" class="hover:text-white transition-colors whitespace-nowrap">Планы</a>
+        <a href="#faq" class="hover:text-white transition-colors whitespace-nowrap">FAQ</a>
       </nav>
 
-      <!-- Action Button -->
-      <div class="flex items-center gap-3">
-        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400">
-          <i data-lucide="clipboard-check" class="w-4 h-4" aria-hidden="true"></i>
-          <span>Опрос для старост</span>
+      <!-- Action Button & Mobile Toggle -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400">
+          <i data-lucide="clipboard-check" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
+          <span>Опрос старост</span>
         </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800 hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 cursor-pointer" aria-label="Открыть навигационное меню" aria-expanded="false">
+          <i data-lucide="menu" id="menuToggleIcon" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-zinc-800/80 bg-zinc-950/95 px-5 py-4 space-y-3">
+      <nav class="flex flex-col space-y-2 text-sm font-medium text-zinc-300" aria-label="Мобильная навигация">
+        <a href="#simulator" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Возможности бота</a>
+        <a href="#problem" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Проблема (CustDev)</a>
+        <a href="#comparison" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Сравнение процессов</a>
+        <a href="#architecture" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Архитектура сервиса</a>
+        <a href="#risks" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Риски и решения</a>
+        <a href="#roadmap" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Дорожная карта</a>
+        <a href="#faq" onclick="toggleMobileMenu()" class="py-2 px-2.5 rounded-lg hover:bg-zinc-900 hover:text-white transition-colors">Частые вопросы (FAQ)</a>
+      </nav>
+      <div class="pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-500 font-mono">
+        <span>РИТМ v1.0 • 2026</span>
+        <a href="https://t.me/spizhy" target="_blank" class="text-zinc-400 hover:text-white">@spizhy</a>
       </div>
     </div>
   </header>
@@ -938,6 +961,26 @@
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Mobile Menu Toggle Functionality
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      const icon = document.getElementById('menuToggleIcon');
+      if (!menu) return;
+
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons({ root: btn });
+    }
 
     // Roadmap Milestones Data
     const milestones = [

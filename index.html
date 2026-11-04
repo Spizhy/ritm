@@ -12,100 +12,100 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-            },
-            accent: {
-              emerald: '#10b981',
-              amber: '#f59e0b',
-              purple: '#8b5cf6',
-              rose: '#f43f5e',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
+    @font-face {
+      font-family: 'NauryzRedKeds';
+      src: url('fonts/NauryzRedKeds.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .font-nauryz {
+      font-family: 'NauryzRedKeds', sans-serif;
+    }
+
     body {
-      background-color: #0b0f17;
+      background-color: #000000;
       color: #f1f5f9;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      overflow-x: hidden;
     }
+
     .glass {
-      background: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(10, 10, 14, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
+
     .glass-card {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(12, 12, 16, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
-    .glow-indigo {
-      box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.25);
+
+    .glow-red {
+      box-shadow: 0 0 70px -10px rgba(239, 68, 68, 0.35);
     }
-    .glow-emerald {
-      box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.25);
+
+    .glow-red-sm {
+      box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.4);
     }
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 70%, #6366f1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    .glow-red-intense {
+      box-shadow: 0 0 100px 10px rgba(255, 30, 30, 0.4);
     }
-    .gradient-border {
+
+    .gradient-red-border {
       position: relative;
-      border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(255, 255, 255, 0.05));
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(255, 255, 255, 0.05));
       padding: 1px;
+    }
+
+    /* Red Arc Horizon Glow */
+    .red-horizon-glow {
+      position: absolute;
+      width: 140%;
+      left: -20%;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.5) 0%, rgba(220, 38, 38, 0.25) 45%, rgba(0, 0, 0, 0) 75%);
+      filter: blur(40px);
+      pointer-events-none;
+      z-index: 1;
     }
   </style>
 </head>
-<body class="selection:bg-indigo-500 selection:text-white">
+<body class="selection:bg-red-600 selection:text-white">
 
   <!-- Floating Navigation Bar -->
   <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-    <div class="max-w-6xl mx-auto glass rounded-2xl px-5 py-3.5 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+    <div class="max-w-6xl mx-auto glass rounded-2xl px-5 py-3.5 flex items-center justify-between border border-red-950/40 shadow-2xl">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-700 to-red-500 flex items-center justify-center text-white shadow-lg shadow-red-600/40 group-hover:scale-105 transition-transform">
           <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
         </div>
-        <div class="flex flex-col">
-          <span class="font-extrabold text-lg tracking-wider text-white flex items-center gap-1.5">
-            РИТМ <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-medium">v1.0</span>
-          </span>
+        <div class="flex items-center gap-2">
+          <span class="font-nauryz text-2xl tracking-widest text-white">РИТМ</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30 font-semibold uppercase">v1.0</span>
         </div>
       </a>
 
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#problem" class="hover:text-white transition-colors">Проблема</a>
-        <a href="#solution" class="hover:text-white transition-colors">Решение</a>
-        <a href="#demo" class="hover:text-white transition-colors">Как это устроено</a>
-        <a href="#engineering" class="hover:text-white transition-colors">Инженерия</a>
-        <a href="#roadmap" class="hover:text-white transition-colors">Планы</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#problem" class="hover:text-red-400 transition-colors">Проблема</a>
+        <a href="#solution" class="hover:text-red-400 transition-colors">Решение</a>
+        <a href="#demo" class="hover:text-red-400 transition-colors">Как это устроено</a>
+        <a href="#engineering" class="hover:text-red-400 transition-colors">Инженерия</a>
+        <a href="#roadmap" class="hover:text-red-400 transition-colors">Планы</a>
+        <a href="#faq" class="hover:text-red-400 transition-colors">FAQ</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 transition-all hover:scale-[1.02] active:scale-[0.98]">
+        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl shadow-lg shadow-red-600/40 hover:shadow-red-500/60 transition-all hover:scale-[1.03] active:scale-[0.98]">
           <i data-lucide="clipboard-check" class="w-4 h-4"></i>
           <span>Опрос старост</span>
         </a>
@@ -113,59 +113,67 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative pt-36 pb-20 overflow-hidden">
-    <!-- Ambient Background Glows -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-indigo-600/15 blur-[120px] rounded-full pointer-events-none"></div>
-    <div class="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+  <!-- Hero Section (Featuring the Signature Red Arc Horizon Banner) -->
+  <section class="relative pt-24 pb-20 overflow-hidden bg-black">
+    
+    <!-- Hero Main Art Banner Container -->
+    <div class="relative w-full max-w-5xl mx-auto px-4 pt-10 sm:pt-16 pb-6 text-center z-10">
       
       <!-- Top Authors Badge -->
-      <div class="flex justify-center mb-6">
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-indigo-500/30 text-xs sm:text-sm text-indigo-300">
-          <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-red-500/30 text-xs sm:text-sm text-red-300 shadow-lg shadow-red-950/50">
+          <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
           <span>Made by <strong>Trepet & Jutreyk & Filthness</strong></span>
-          <span class="text-slate-500">•</span>
+          <span class="text-slate-600">•</span>
           <span class="text-slate-400">Пилотный тест: 20–26 ноября</span>
         </div>
       </div>
 
-      <!-- Main Headline -->
-      <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-[1.15]">
+      <!-- Centerpiece Visual Banner: Glowing Red Horizon & Nauryz Wordmark -->
+      <div class="relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-red-900/40 shadow-2xl glow-red-intense group mb-10">
+        <!-- Main Image -->
+        <img src="assets/ritm-hero.jpg" alt="РИТМ" class="w-full h-auto object-cover transform scale-100 group-hover:scale-[1.01] transition-transform duration-700">
+        
+        <!-- Subtle dark vignette around banner edges to merge seamlessly with page background -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none opacity-80"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black pointer-events-none"></div>
+      </div>
+
+      <!-- Main Headline & Subtitle -->
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-[1.15] text-white">
           У старосты много задач, <br>
-          <span class="gradient-text">не так ли?</span>
+          <span class="font-nauryz text-red-500 tracking-wider">не так ли?</span>
         </h1>
-        <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-8">
+        <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl mx-auto">
           Отмены, расписание и перекличка работают сами. Умный Telegram-бот, который снимает со старост ежедневную рутину (≈ 50 минут каждый день).
         </p>
 
         <!-- CTA Action Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
             <i data-lucide="check-circle-2" class="w-5 h-5"></i>
             <span>Пройти опрос для старост</span>
           </a>
-          <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass hover:bg-slate-800/80 text-slate-200 font-medium px-6 py-3.5 rounded-xl border border-slate-700/60 transition-all hover:scale-[1.02]">
-            <i data-lucide="send" class="w-5 h-5 text-indigo-400"></i>
+          <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass hover:bg-slate-900 text-slate-200 font-medium px-7 py-4 rounded-xl border border-red-900/40 transition-all hover:scale-[1.02]">
+            <i data-lucide="send" class="w-5 h-5 text-red-400"></i>
             <span>Написать в Telegram @spizhy</span>
           </a>
         </div>
       </div>
 
-      <!-- Live Interactive Product Simulator -->
-      <div class="max-w-4xl mx-auto gradient-border shadow-2xl glow-indigo">
-        <div class="bg-slate-900/90 rounded-2xl p-4 sm:p-7">
+      <!-- Live Interactive Product Simulator (Red / Obsidian Theme) -->
+      <div class="max-w-4xl mx-auto gradient-red-border shadow-2xl glow-red text-left">
+        <div class="bg-slate-950/95 rounded-2xl p-4 sm:p-7 border border-red-950/40">
           
           <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-red-600 animate-pulse"></span>
               <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
               <span class="ml-2 text-xs font-mono text-slate-400">Интерактивный симулятор «Ритм» в Telegram</span>
             </div>
-            <div class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+            <div class="text-xs font-mono px-2.5 py-1 rounded bg-red-500/10 text-red-300 border border-red-500/30 font-semibold">
               Чат группы: ЭВТ-21
             </div>
           </div>
@@ -175,29 +183,29 @@
             <!-- Left Column: Pinned 07:30 Digest Post -->
             <div class="md:col-span-7 space-y-4">
               <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <i data-lucide="pin" class="w-3.5 h-3.5 text-indigo-400"></i>
+                <i data-lucide="pin" class="w-3.5 h-3.5 text-red-400"></i>
                 <span>Закреплённое сообщение (Дайджест в 07:30)</span>
               </div>
 
               <!-- The Telegram Message Card -->
-              <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800 text-sm font-sans space-y-3">
-                <div class="flex items-center justify-between text-xs text-indigo-400 font-mono">
+              <div class="bg-black/90 rounded-xl p-4 border border-slate-800 text-sm font-sans space-y-3 shadow-inner">
+                <div class="flex items-center justify-between text-xs text-red-400 font-mono">
                   <span class="font-bold flex items-center gap-1.5">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Пятница, 17 октября
+                    <i data-lucide="calendar" class="w-4 h-4 text-red-500"></i> Пятница, 17 октября
                   </span>
-                  <span class="bg-indigo-950 px-2 py-0.5 rounded text-indigo-300 border border-indigo-800/50">Нечетная неделя</span>
+                  <span class="bg-red-950/60 px-2 py-0.5 rounded text-red-300 border border-red-800/50">Нечетная неделя</span>
                 </div>
 
                 <div class="space-y-2.5 pt-1">
                   <!-- Lesson 1: Cancelled -->
-                  <div class="p-2.5 rounded-lg bg-rose-950/30 border border-rose-900/40 relative overflow-hidden">
-                    <div class="flex items-center justify-between font-semibold text-rose-300 text-xs">
+                  <div class="p-2.5 rounded-lg bg-red-950/30 border border-red-900/60 relative overflow-hidden">
+                    <div class="flex items-center justify-between font-semibold text-red-300 text-xs">
                       <span>1️⃣ 08:30 – 10:00</span>
-                      <span class="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded text-[11px] font-bold">❌ ОТМЕНА</span>
+                      <span class="bg-red-500/20 text-red-300 px-2 py-0.5 rounded text-[11px] font-bold">❌ ОТМЕНА</span>
                     </div>
                     <div class="line-through text-slate-400 text-xs mt-1">Высшая математика (лекция) • ауд. 204</div>
-                    <div class="text-[11px] text-rose-300/90 mt-1 flex items-center gap-1">
-                      <i data-lucide="alert-circle" class="w-3 h-3"></i> Преподаватель на больничном, задание в СДО
+                    <div class="text-[11px] text-red-300/90 mt-1 flex items-center gap-1">
+                      <i data-lucide="alert-circle" class="w-3 h-3 text-red-400"></i> Преподаватель на больничном, задание в СДО
                     </div>
                   </div>
 
@@ -224,7 +232,7 @@
 
                 <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
                   <span>Обновлено ботом автоматически</span>
-                  <span class="text-slate-500">07:30</span>
+                  <span class="text-slate-500 font-mono">07:30</span>
                 </div>
               </div>
             </div>
@@ -233,19 +241,19 @@
             <div class="md:col-span-5 space-y-4">
               <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center justify-between">
                 <span>Перекличка (Кликните статус)</span>
-                <span class="text-emerald-400 text-xs" id="statusFeedback">Попробуйте кликнуть 👇</span>
+                <span class="text-red-400 text-xs font-semibold" id="statusFeedback">Попробуйте кликнуть 👇</span>
               </div>
 
               <!-- Interactive Roll-call Box -->
-              <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800 space-y-3">
+              <div class="bg-black/90 rounded-xl p-4 border border-slate-800 space-y-3 shadow-inner">
                 <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-800">
                   <span class="text-slate-300 font-medium">Явка группы:</span>
-                  <span class="font-bold text-emerald-400" id="attendanceText">24 из 28 (86%)</span>
+                  <span class="font-bold text-red-400 font-mono text-sm" id="attendanceText">24 из 28 (86%)</span>
                 </div>
 
                 <!-- Progress Bar -->
                 <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                  <div id="attendanceBar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 86%;"></div>
+                  <div id="attendanceBar" class="bg-gradient-to-r from-red-600 to-rose-500 h-full rounded-full transition-all duration-300" style="width: 86%;"></div>
                 </div>
 
                 <p class="text-xs text-slate-400 pt-1">
@@ -254,22 +262,22 @@
 
                 <!-- 4 Action Buttons -->
                 <div class="grid grid-cols-2 gap-2 pt-1">
-                  <button onclick="handleStatus('present')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-800/60 text-emerald-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95">
+                  <button onclick="handleStatus('present')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-800/60 text-emerald-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95 cursor-pointer">
                     <i data-lucide="check" class="w-3.5 h-3.5"></i>
                     <span>На парах</span>
                   </button>
 
-                  <button onclick="handleStatus('late')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-amber-950/40 hover:bg-amber-900/60 border border-amber-800/60 text-amber-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95">
+                  <button onclick="handleStatus('late')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-amber-950/40 hover:bg-amber-900/60 border border-amber-800/60 text-amber-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95 cursor-pointer">
                     <i data-lucide="clock" class="w-3.5 h-3.5"></i>
                     <span>Опаздываю</span>
                   </button>
 
-                  <button onclick="handleStatus('excused')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-purple-950/40 hover:bg-purple-900/60 border border-purple-800/60 text-purple-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95">
+                  <button onclick="handleStatus('excused')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-purple-950/40 hover:bg-purple-900/60 border border-purple-800/60 text-purple-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95 cursor-pointer">
                     <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
                     <span>Уважительная</span>
                   </button>
 
-                  <button onclick="handleStatus('absent')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 border border-rose-900/60 text-rose-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95">
+                  <button onclick="handleStatus('absent')" class="status-btn flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 border border-rose-900/60 text-rose-300 text-xs font-semibold transition-all hover:scale-105 active:scale-95 cursor-pointer">
                     <i data-lucide="x" class="w-3.5 h-3.5"></i>
                     <span>Отсутствую</span>
                   </button>
@@ -277,8 +285,8 @@
 
                 <!-- Excel Export Preview -->
                 <div class="pt-3 border-t border-slate-800/80">
-                  <button onclick="simulateExport()" class="w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/70 text-xs font-medium flex items-center justify-center gap-2 transition-all">
-                    <i data-lucide="download" class="w-3.5 h-3.5 text-indigo-400"></i>
+                  <button onclick="simulateExport()" class="w-full py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-red-900/40 text-xs font-medium flex items-center justify-center gap-2 transition-all cursor-pointer">
+                    <i data-lucide="download" class="w-3.5 h-3.5 text-red-400"></i>
                     <span>/export ➔ Готовый .xlsx в 1 клик</span>
                   </button>
                 </div>
@@ -294,12 +302,12 @@
   </section>
 
   <!-- Section: Problem & Interview Validation -->
-  <section id="problem" class="py-20 border-t border-slate-800/80 relative">
+  <section id="problem" class="py-20 border-t border-slate-900 relative bg-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Кастдев и реальность</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Проблема: 50 минут рутины каждый день</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Кастдев и реальность</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">Проблема: 50 минут рутины каждый день</h3>
         <p class="text-slate-400 mt-4 text-base">
           Мы опросили реальных старост вузов и колледжей и подтвердили ключевые боли на практике:
         </p>
@@ -308,8 +316,8 @@
       <!-- 4 Hypotheses Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition-colors">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-500/50 transition-all hover:glow-red-sm">
+          <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center mb-4">
             <i data-lucide="message-square-off" class="w-5 h-5"></i>
           </div>
           <div class="text-xs font-mono text-emerald-400 font-semibold mb-1">ПОДТВЕРЖДЕНО</div>
@@ -319,7 +327,7 @@
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition-colors">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-500/50 transition-all hover:glow-red-sm">
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
             <i data-lucide="help-circle" class="w-5 h-5"></i>
           </div>
@@ -330,22 +338,22 @@
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition-colors">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-500/50 transition-all hover:glow-red-sm">
           <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
             <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
           </div>
           <div class="text-xs font-mono text-amber-400 font-semibold mb-1">ПЕРИОДИЧЕСКИ</div>
           <h4 class="text-base font-bold text-white mb-2">Ведомость деканата</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Куратор требует отчетность по яве. Ручное сведение посещаемости на листочке отнимает часы времени.
+            Куратор требует отчетность по явке. Ручное сведение посещаемости на листочке отнимает часы времени.
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition-colors">
-          <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-500/50 transition-all hover:glow-red-sm">
+          <div class="w-10 h-10 rounded-xl bg-red-600/10 text-red-500 flex items-center justify-center mb-4">
             <i data-lucide="timer" class="w-5 h-5"></i>
           </div>
-          <div class="text-xs font-mono text-rose-400 font-semibold mb-1">≈ 50 МИНУТ / ДЕНЬ</div>
+          <div class="text-xs font-mono text-red-400 font-semibold mb-1">≈ 50 МИНУТ / ДЕНЬ</div>
           <h4 class="text-base font-bold text-white mb-2">Потеря времени</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
             Староста — обычный студент, выполняющий роль бесплатного диспетчера 24/7 без страховки на случай болезни.
@@ -358,65 +366,65 @@
   </section>
 
   <!-- Section: Solution (Было ➔ Стало) -->
-  <section id="solution" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
+  <section id="solution" class="py-20 border-t border-slate-900 bg-slate-950/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Трансформация процессов</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Как меняется жизнь группы</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Трансформация процессов</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">Как меняется жизнь группы</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- Было -->
-        <div class="glass-card p-7 rounded-2xl border border-rose-900/30 space-y-5">
-          <div class="flex items-center gap-3 text-rose-400 font-bold text-lg pb-3 border-b border-rose-900/40">
-            <i data-lucide="x-circle" class="w-6 h-6"></i>
+        <div class="glass-card p-7 rounded-2xl border border-red-950/50 space-y-5">
+          <div class="flex items-center gap-3 text-red-400 font-bold text-lg pb-3 border-b border-red-950/60">
+            <i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>
             <span>Как было раньше (Вручную)</span>
           </div>
 
           <div class="space-y-4 text-sm text-slate-300">
             <div class="flex items-start gap-3">
-              <span class="text-rose-400 font-bold">•</span>
+              <span class="text-red-500 font-bold">•</span>
               <span>Пересылка отмены в чат с тонной опечаток + ответы на 20 однотипных вопросов в личке.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-rose-400 font-bold">•</span>
+              <span class="text-red-500 font-bold">•</span>
               <span>Каждое утро староста просыпается на час раньше, чтобы скинуть расписание дня.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-rose-400 font-bold">•</span>
+              <span class="text-red-500 font-bold">•</span>
               <span>Перекличка голосом на парах или хаотичные списки в заметках смартфона.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-rose-400 font-bold">•</span>
+              <span class="text-red-500 font-bold">•</span>
               <span>Составление ведомости в Excel вручную по выходным перед сдачей куратору.</span>
             </div>
           </div>
         </div>
 
         <!-- Стало -->
-        <div class="glass-card p-7 rounded-2xl border border-emerald-900/40 shadow-xl shadow-emerald-950/20 space-y-5">
-          <div class="flex items-center gap-3 text-emerald-400 font-bold text-lg pb-3 border-b border-emerald-900/40">
-            <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+        <div class="glass-card p-7 rounded-2xl border border-red-900/60 shadow-xl shadow-red-950/20 space-y-5">
+          <div class="flex items-center gap-3 text-red-400 font-bold text-lg pb-3 border-b border-red-950/60">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-red-500"></i>
             <span>Как стало с «Ритмом» (Автопилот)</span>
           </div>
 
           <div class="space-y-4 text-sm text-slate-200">
             <div class="flex items-start gap-3">
-              <span class="text-emerald-400 font-bold">✓</span>
+              <span class="text-red-400 font-bold">✓</span>
               <span><strong>Переслал боту ➔ «Опубликовать»</strong>: отмена красиво оформлена в чате, а дайджест дня сразу обновлен.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-emerald-400 font-bold">✓</span>
+              <span class="text-red-400 font-bold">✓</span>
               <span><strong>Дайджест в 07:30</strong>: каждое утро автоматически закреплен в чате с кабинетами и отменами.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-emerald-400 font-bold">✓</span>
+              <span class="text-red-400 font-bold">✓</span>
               <span><strong>4 кнопки переклички</strong>: на парах / опаздываю / уважительная / отсутствую в 1 тап.</span>
             </div>
             <div class="flex items-start gap-3">
-              <span class="text-emerald-400 font-bold">✓</span>
+              <span class="text-red-400 font-bold">✓</span>
               <span><strong>Команда /export</strong>: за 2 секунды отдает идеальный .xlsx файл в формате деканата.</span>
             </div>
           </div>
@@ -428,49 +436,49 @@
   </section>
 
   <!-- Section: Architecture & Demo Steps -->
-  <section id="demo" class="py-20 border-t border-slate-800/80 relative">
+  <section id="demo" class="py-20 border-t border-slate-900 relative bg-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Сценарий использования</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">6 простых шагов работы сервиса</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Сценарий использования</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">6 простых шагов работы сервиса</h3>
       </div>
 
       <!-- 6 Steps Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">1</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">1</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Вход в группу по коду</h4>
           <p class="text-xs text-slate-400">Студент запускает бота по коду группы, подписывает 152-ФЗ согласие, а староста жмет «Принять».</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">2</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">2</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Сообщение от преподавателя</h4>
           <p class="text-xs text-slate-400">Преподаватель пишет в личку: «Завтра пары не будет, заболел. Делайте задание в СДО».</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">3</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">3</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Пересылка и Карточка</h4>
           <p class="text-xs text-slate-400">Староста пересылает текст боту ➔ LLM парсит суть ➔ Староста нажимает <strong>«Опубликовать»</strong>.</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">4</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">4</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Синхронизация с дайджестом</h4>
           <p class="text-xs text-slate-400">Отмена летит в чат группы, а закрепленное утреннее расписание автоматически вычеркивает пару.</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">5</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">5</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Перекличка кнопками</h4>
           <p class="text-xs text-slate-400">Студенты жмут 1 из 4 кнопок за 15 минут до пары. Староста в любой момент видит сводку присутствующих.</p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
-          <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-mono font-bold flex items-center justify-center mb-3">6</div>
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 hover:border-red-900/60 transition-colors">
+          <div class="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 font-mono font-bold flex items-center justify-center mb-3">6</div>
           <h4 class="font-bold text-white text-sm mb-1.5">Готовая ведомость в Excel</h4>
           <p class="text-xs text-slate-400">Команда <strong>/export</strong> мгновенно генерирует файл .xlsx со списком группы и процентами явок для деканата.</p>
         </div>
@@ -478,12 +486,12 @@
       </div>
 
       <!-- Architecture Block -->
-      <div class="mt-14 glass-card p-6 sm:p-8 rounded-2xl border border-indigo-900/40">
+      <div class="mt-14 glass-card p-6 sm:p-8 rounded-2xl border border-red-900/40">
         <h4 class="text-base font-bold text-white mb-4 flex items-center gap-2">
-          <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+          <i data-lucide="cpu" class="w-5 h-5 text-red-500"></i>
           <span>Архитектура данных «Ритм»</span>
         </h4>
-        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto whitespace-pre leading-relaxed">
+        <div class="bg-black p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto whitespace-pre leading-relaxed">
 Преподаватель ──► Староста ──пересылка──► Бот (aiogram 3)
                                              │
                      LLM-парсер (+ ручная форма, если LLM недоступна)
@@ -495,7 +503,7 @@
                                Чат группы · Excel-ведомость</div>
         <div class="mt-4 flex flex-wrap items-center gap-5 text-xs text-slate-400">
           <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Премодерация обязательна</span>
-          <span class="flex items-center gap-1.5"><i data-lucide="server" class="w-4 h-4 text-indigo-400"></i> Серверы в РФ (152-ФЗ)</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="server" class="w-4 h-4 text-red-400"></i> Серверы в РФ (152-ФЗ)</span>
           <span class="flex items-center gap-1.5"><i data-lucide="trash-2" class="w-4 h-4 text-rose-400"></i> Удаление по /delete_me</span>
         </div>
       </div>
@@ -504,20 +512,20 @@
   </section>
 
   <!-- Section: Why Zero Magic & Engineering Principles -->
-  <section id="engineering" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
+  <section id="engineering" class="py-20 border-t border-slate-900 bg-slate-950/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Осознанные решения</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Почему проект сделан «Без магии»</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Осознанные решения</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">Почему проект сделан «Без магии»</h3>
         <p class="text-slate-400 mt-4 text-base">Инженерные компромиссы, обеспечивающие максимальную надежность и безопасность:</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80">
           <div class="flex items-center gap-3 mb-2">
-            <span class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400"><i data-lucide="shield" class="w-5 h-5"></i></span>
+            <span class="p-2 rounded-lg bg-red-500/10 text-red-400"><i data-lucide="shield" class="w-5 h-5"></i></span>
             <h4 class="font-bold text-white text-base">Пересылка боту, а не userbot (Telethon)</h4>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed pl-11">
@@ -525,7 +533,7 @@
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80">
           <div class="flex items-center gap-3 mb-2">
             <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400"><i data-lucide="check-check" class="w-5 h-5"></i></span>
             <h4 class="font-bold text-white text-base">Премодерация обязательна</h4>
@@ -535,7 +543,7 @@
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80">
           <div class="flex items-center gap-3 mb-2">
             <span class="p-2 rounded-lg bg-purple-500/10 text-purple-400"><i data-lucide="lock" class="w-5 h-5"></i></span>
             <h4 class="font-bold text-white text-base">«Уважительная причина» вместо «болею»</h4>
@@ -545,7 +553,7 @@
           </p>
         </div>
 
-        <div class="glass-card p-6 rounded-2xl border border-slate-800">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80">
           <div class="flex items-center gap-3 mb-2">
             <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400"><i data-lucide="zap" class="w-5 h-5"></i></span>
             <h4 class="font-bold text-white text-base">Бот-first вместо тяжелых приложений</h4>
@@ -560,13 +568,13 @@
     </div>
   </section>
 
-  <!-- Section: Roadmap & Pricing -->
-  <section id="roadmap" class="py-20 border-t border-slate-800/80 relative">
+  <!-- Section: Interactive Roadmap with Timeline (Styled with Crimson Glow) -->
+  <section id="roadmap" class="py-20 border-t border-slate-900 relative bg-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Планы и Модель</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Интерактивная дорожная карта</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Планы и Модель</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">Интерактивная дорожная карта</h3>
         <p class="text-slate-400 mt-3 text-sm">
           Нажмите на любой этап на временной шкале, чтобы увидеть запланированный функционал:
         </p>
@@ -580,26 +588,26 @@
           <!-- Background track line -->
           <div class="absolute top-[38px] sm:top-1/2 left-8 right-8 h-1 sm:-translate-y-1/2 bg-slate-800 rounded-full z-0"></div>
           
-          <!-- Animated Active progress line -->
-          <div id="timelineProgress" class="absolute top-[38px] sm:top-1/2 left-8 h-1 sm:-translate-y-1/2 bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full z-0 transition-all duration-500 ease-out" style="width: 0%;"></div>
+          <!-- Animated Active progress line (Red Neon Gradient) -->
+          <div id="timelineProgress" class="absolute top-[38px] sm:top-1/2 left-8 h-1 sm:-translate-y-1/2 bg-gradient-to-r from-red-600 to-rose-500 rounded-full z-0 transition-all duration-500 ease-out glow-red-sm" style="width: 0%;"></div>
 
           <!-- 4 Milestone Nodes -->
           <div class="relative z-10 flex items-center justify-between">
             
             <!-- Node 0: Ноябрь 2026 -->
             <button onclick="selectMilestone(0)" id="node-0" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
-              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-indigo-500 text-indigo-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-indigo-950/60 transition-all duration-300 ring-4 ring-indigo-500/30 scale-110">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-red-500 text-red-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-red-950/60 transition-all duration-300 ring-4 ring-red-500/30 scale-110">
                 <i data-lucide="clipboard-check" class="w-5 h-5"></i>
               </div>
               <div class="mt-3 text-center">
                 <span class="node-date block text-xs sm:text-sm font-bold text-white transition-colors">Ноябрь 2026</span>
-                <span class="node-sub block text-[11px] text-indigo-400 font-medium">Тест старост</span>
+                <span class="node-sub block text-[11px] text-red-400 font-medium">Тест старост</span>
               </div>
             </button>
 
             <!-- Node 1: Декабрь 2026 -->
             <button onclick="selectMilestone(1)" id="node-1" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
-              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-slate-800 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-red-400 group-hover:text-red-300">
                 <i data-lucide="users" class="w-5 h-5"></i>
               </div>
               <div class="mt-3 text-center">
@@ -610,7 +618,7 @@
 
             <!-- Node 2: Январь 2027 -->
             <button onclick="selectMilestone(2)" id="node-2" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
-              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-slate-800 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-red-400 group-hover:text-red-300">
                 <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
               </div>
               <div class="mt-3 text-center">
@@ -621,7 +629,7 @@
 
             <!-- Node 3: Весна 2027 -->
             <button onclick="selectMilestone(3)" id="node-3" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
-              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-slate-800 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-red-400 group-hover:text-red-300">
                 <i data-lucide="smartphone" class="w-5 h-5"></i>
               </div>
               <div class="mt-3 text-center">
@@ -637,15 +645,15 @@
 
       <!-- Milestone Interactive Details Card -->
       <div class="max-w-4xl mx-auto mb-16">
-        <div id="milestoneCard" class="glass-card rounded-2xl p-6 sm:p-9 border border-indigo-500/30 transition-all duration-300 shadow-xl glow-indigo">
+        <div id="milestoneCard" class="glass-card rounded-2xl p-6 sm:p-9 border border-red-900/50 transition-all duration-300 shadow-xl glow-red">
           
           <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-800 gap-3">
             <div class="flex items-center gap-3">
-              <div id="milestoneIconBox" class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-lg">
-                <i id="milestoneIcon" data-lucide="clipboard-check" class="w-6 h-6"></i>
+              <div id="milestoneIconBox" class="w-12 h-12 rounded-xl bg-red-600/10 text-red-400 flex items-center justify-center font-bold text-lg">
+                <i id="milestoneIcon" data-lucide="clipboard-check" class="w-6 h-6 text-red-500"></i>
               </div>
               <div>
-                <span id="milestoneStep" class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400">ЭТАП 1 ИЗ 4 • 20–26 НОЯБРЯ 2026</span>
+                <span id="milestoneStep" class="text-xs font-mono font-semibold uppercase tracking-wider text-red-400">ЭТАП 1 ИЗ 4 • 20–26 НОЯБРЯ 2026</span>
                 <h4 id="milestoneTitle" class="text-xl sm:text-2xl font-extrabold text-white">Тестирование с реальными старостами</h4>
               </div>
             </div>
@@ -670,12 +678,12 @@
 
           <!-- Bottom Stepper Buttons -->
           <div class="pt-5 border-t border-slate-800 flex items-center justify-between">
-            <button onclick="prevMilestone()" id="btnPrev" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed" disabled>
+            <button onclick="prevMilestone()" id="btnPrev" class="px-4 py-2 rounded-xl bg-slate-900 text-slate-600 border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed" disabled>
               <i data-lucide="arrow-left" class="w-4 h-4"></i>
               <span>Предыдущий этап</span>
             </button>
             <span id="milestoneCounter" class="text-xs text-slate-500 font-mono">1 / 4</span>
-            <button onclick="nextMilestone()" id="btnNext" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30">
+            <button onclick="nextMilestone()" id="btnNext" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-red-600/30 cursor-pointer">
               <span>Следующий этап</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
@@ -685,15 +693,15 @@
       </div>
 
       <!-- Pricing / Business Model Box -->
-      <div class="glass-card p-7 sm:p-9 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="glass-card p-7 sm:p-9 rounded-2xl border border-red-950/50 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <span class="text-xs font-bold font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ФИЛОСОФИЯ ДОСТУПНОСТИ</span>
-          <h4 class="text-2xl font-extrabold text-white mt-3">Для старост — бесплатно ВСЕГДА</h4>
+          <span class="text-xs font-bold font-mono px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">ФИЛОСОФИЯ ДОСТУПНОСТИ</span>
+          <h4 class="font-nauryz text-2xl font-extrabold text-white mt-3 tracking-wider">Для старост — бесплатно ВСЕГДА</h4>
           <p class="text-sm text-slate-400 mt-2 max-w-xl">
             Отмены пар, утренний дайджест в 07:30, 4 кнопки переклички и выгрузка ведомостей в Excel будут всегда бесплатными для старост. Монетизация осуществляется через B2B-контракты с колледжами (сводка по факультету для деканата).
           </p>
         </div>
-        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="shrink-0 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 transition-all hover:scale-105">
+        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="shrink-0 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-red-600/40 transition-all hover:scale-105">
           Стать пилотной группой
         </a>
       </div>
@@ -702,17 +710,17 @@
   </section>
 
   <!-- Section: FAQ -->
-  <section id="faq" class="py-20 border-t border-slate-800/80 bg-slate-950/40">
+  <section id="faq" class="py-20 border-t border-slate-900 bg-slate-950/40">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Вопросы и ответы</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Часто задаваемые вопросы</h3>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-500 mb-3">Вопросы и ответы</h2>
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white tracking-wider">Часто задаваемые вопросы</h3>
       </div>
 
       <div class="space-y-4">
         
-        <details class="glass-card p-5 rounded-xl border border-slate-800 group">
+        <details class="glass-card p-5 rounded-xl border border-slate-800/80 group">
           <summary class="font-bold text-white text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>Почему бот, а не отдельное приложение?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
@@ -722,7 +730,7 @@
           </p>
         </details>
 
-        <details class="glass-card p-5 rounded-xl border border-slate-800 group">
+        <details class="glass-card p-5 rounded-xl border border-slate-800/80 group">
           <summary class="font-bold text-white text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>А если заблокируют Telegram?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
@@ -732,7 +740,7 @@
           </p>
         </details>
 
-        <details class="glass-card p-5 rounded-xl border border-slate-800 group">
+        <details class="glass-card p-5 rounded-xl border border-slate-800/80 group">
           <summary class="font-bold text-white text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>Студенты будут отмечаться из дома?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
@@ -742,7 +750,7 @@
           </p>
         </details>
 
-        <details class="glass-card p-5 rounded-xl border border-slate-800 group">
+        <details class="glass-card p-5 rounded-xl border border-slate-800/80 group">
           <summary class="font-bold text-white text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>Законно ли хранить посещаемость (152-ФЗ)?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
@@ -752,7 +760,7 @@
           </p>
         </details>
 
-        <details class="glass-card p-5 rounded-xl border border-slate-800 group">
+        <details class="glass-card p-5 rounded-xl border border-slate-800/80 group">
           <summary class="font-bold text-white text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>Чем это лучше обычного чата группы?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180"></i>
@@ -767,12 +775,16 @@
     </div>
   </section>
 
-  <!-- Big Call to Action Banner -->
-  <section class="py-20 border-t border-slate-800/80 relative overflow-hidden">
+  <!-- Big Call to Action Banner (Red Eclipse Aesthetic) -->
+  <section class="py-20 border-t border-slate-900 relative overflow-hidden bg-black">
+    
+    <!-- Red Ambient Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-red-600/20 blur-[130px] rounded-full pointer-events-none"></div>
+
     <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
       
-      <div class="glass-card rounded-3xl p-8 sm:p-14 text-center border border-indigo-500/30 glow-indigo">
-        <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">
+      <div class="glass-card rounded-3xl p-8 sm:p-14 text-center border border-red-500/40 glow-red">
+        <h3 class="font-nauryz text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-wider">
           Помоги сделать «Ритм» идеальным
         </h3>
         <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">
@@ -780,12 +792,12 @@
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-indigo-600/30 transition-all hover:scale-105">
+          <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/40 transition-all hover:scale-105">
             <i data-lucide="clipboard-check" class="w-5 h-5"></i>
             <span>Заполнить Google-Форму</span>
           </a>
-          <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 glass hover:bg-slate-800 text-white font-medium px-7 py-4 rounded-xl border border-slate-700 transition-all">
-            <i data-lucide="send" class="w-5 h-5 text-indigo-400"></i>
+          <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 glass hover:bg-slate-900 text-white font-medium px-7 py-4 rounded-xl border border-red-900/50 transition-all">
+            <i data-lucide="send" class="w-5 h-5 text-red-400"></i>
             <span>Связаться с автором (@spizhy)</span>
           </a>
         </div>
@@ -795,10 +807,10 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 border-t border-slate-800/60 text-xs text-slate-500">
+  <footer class="py-10 border-t border-slate-900 text-xs text-slate-500 bg-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <span class="font-extrabold text-white text-sm tracking-wider">РИТМ</span>
+        <span class="font-nauryz text-white text-base tracking-widest">РИТМ</span>
         <span>•</span>
         <span>Made by Trepet & Jutreyk & Filthness</span>
       </div>
@@ -810,8 +822,8 @@
 
   <!-- Toast Notification Container -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="glass px-4 py-3 rounded-xl border border-emerald-500/40 text-emerald-300 text-xs font-semibold flex items-center gap-2 shadow-xl shadow-emerald-950/50">
-      <i data-lucide="check-circle" class="w-4 h-4"></i>
+    <div class="glass px-4 py-3 rounded-xl border border-red-500/40 text-red-300 text-xs font-semibold flex items-center gap-2 shadow-xl shadow-red-950/60">
+      <i data-lucide="check-circle" class="w-4 h-4 text-red-400"></i>
       <span id="toastMessage">Статус обновлен</span>
     </div>
   </div>
@@ -839,7 +851,7 @@
         step: "ЭТАП 2 ИЗ 4 • ДЕКАБРЬ 2026",
         title: "Боевые пилоты в 3–5 группах",
         icon: "users",
-        badge: { text: "В РАЗРАБОТКЕ", bg: "bg-indigo-500/10", border: "border-indigo-500/30", textCol: "text-indigo-400", pulse: false },
+        badge: { text: "В РАЗРАБОТКЕ", bg: "bg-red-500/10", border: "border-red-500/30", textCol: "text-red-400", pulse: false },
         desc: "Полноценный запуск Telegram-бота «Ритм» в первых пилотных группах колледжей и университетов в боевом учебном процессе.",
         points: [
           "Автоматическая отправка утреннего дайджеста в 07:30 в закреп чата группы",
@@ -895,15 +907,15 @@
         const subText = node.querySelector('.node-sub');
 
         if (i === idx) {
-          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-indigo-500 text-indigo-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-indigo-950/60 transition-all duration-300 ring-4 ring-indigo-500/30 scale-110";
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-red-500 text-red-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-red-950/60 transition-all duration-300 ring-4 ring-red-500/30 scale-110";
           dateText.className = "node-date block text-xs sm:text-sm font-bold text-white transition-colors";
-          subText.className = "node-sub block text-[11px] text-indigo-400 font-medium";
+          subText.className = "node-sub block text-[11px] text-red-400 font-medium";
         } else if (i < idx) {
-          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-indigo-950/60 border-2 border-indigo-600 text-indigo-300 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300";
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-red-950/60 border-2 border-red-600 text-red-300 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300";
           dateText.className = "node-date block text-xs sm:text-sm font-semibold text-slate-300 transition-colors";
           subText.className = "node-sub block text-[11px] text-slate-400 font-medium";
         } else {
-          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300";
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-slate-800 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-red-400 group-hover:text-red-300";
           dateText.className = "node-date block text-xs sm:text-sm font-medium text-slate-400 transition-colors";
           subText.className = "node-sub block text-[11px] text-slate-500 font-medium";
         }
@@ -926,15 +938,15 @@
         // Points
         const pointsContainer = document.getElementById('milestonePoints');
         pointsContainer.innerHTML = m.points.map(pt => `
-          <div class="flex items-start gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
-            <span class="text-indigo-400 font-bold mt-0.5">•</span>
+          <div class="flex items-start gap-2 bg-black/80 p-2.5 rounded-lg border border-slate-800/80">
+            <span class="text-red-500 font-bold mt-0.5">•</span>
             <span>${pt}</span>
           </div>
         `).join('');
 
         // Icon
         const iconBox = document.getElementById('milestoneIconBox');
-        iconBox.innerHTML = `<i data-lucide="${m.icon}" class="w-6 h-6"></i>`;
+        iconBox.innerHTML = `<i data-lucide="${m.icon}" class="w-6 h-6 text-red-500"></i>`;
         lucide.createIcons({ root: iconBox });
 
         // Stepper buttons
@@ -955,7 +967,7 @@
           btnNext.className = "px-4 py-2 rounded-xl bg-slate-900 text-slate-600 border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed";
         } else {
           btnNext.disabled = false;
-          btnNext.className = "px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30 cursor-pointer";
+          btnNext.className = "px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-red-600/40 cursor-pointer";
         }
 
         card.classList.remove('opacity-75');
@@ -985,22 +997,22 @@
       if (type === 'present') {
         currentCount = 25;
         feedback.innerText = "✅ Вы отмечены: На парах!";
-        feedback.className = "text-emerald-400 text-xs";
+        feedback.className = "text-emerald-400 text-xs font-semibold";
         showToast("Статус сохранен: На парах");
       } else if (type === 'late') {
         currentCount = 24;
         feedback.innerText = "🚗 Вы отмечены: Опаздываете";
-        feedback.className = "text-amber-400 text-xs";
+        feedback.className = "text-amber-400 text-xs font-semibold";
         showToast("Статус сохранен: Опоздание до 15 мин");
       } else if (type === 'excused') {
         currentCount = 24;
         feedback.innerText = "📄 Уважительная причина (152-ФЗ)";
-        feedback.className = "text-purple-400 text-xs";
+        feedback.className = "text-purple-400 text-xs font-semibold";
         showToast("Зафиксировано: Уважительная причина");
       } else if (type === 'absent') {
         currentCount = 24;
         feedback.innerText = "❌ Вы отмечены: Отсутствуете";
-        feedback.className = "text-rose-400 text-xs";
+        feedback.className = "text-red-500 text-xs font-semibold";
         showToast("Статус сохранен: Отсутствие");
       }
 

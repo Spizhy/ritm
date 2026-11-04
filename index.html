@@ -561,41 +561,127 @@
   </section>
 
   <!-- Section: Roadmap & Pricing -->
-  <section id="roadmap" class="py-20 border-t border-slate-800/80">
+  <section id="roadmap" class="py-20 border-t border-slate-800/80 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-14">
         <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">Планы и Модель</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Дорожная карта проекта</h3>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Интерактивная дорожная карта</h3>
+        <p class="text-slate-400 mt-3 text-sm">
+          Нажмите на любой этап на временной шкале, чтобы увидеть запланированный функционал:
+        </p>
       </div>
 
-      <!-- Roadmap Timeline -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+      <!-- Interactive Timeline Controller -->
+      <div class="max-w-4xl mx-auto mb-8">
         
-        <div class="glass-card p-5 rounded-2xl border border-indigo-500/30">
-          <div class="text-xs font-mono font-bold text-indigo-400 mb-1">НОЯБРЬ 2026</div>
-          <h4 class="font-bold text-white text-sm mb-2">Тест с реальными старостами</h4>
-          <p class="text-xs text-slate-400">Проведение опроса (20–26.11), анализ фидбека и калибровка шаблонов парсера.</p>
+        <!-- Timeline Bar (Desktop & Mobile) -->
+        <div class="relative py-6 px-4 sm:px-8">
+          <!-- Background track line -->
+          <div class="absolute top-[38px] sm:top-1/2 left-8 right-8 h-1 sm:-translate-y-1/2 bg-slate-800 rounded-full z-0"></div>
+          
+          <!-- Animated Active progress line -->
+          <div id="timelineProgress" class="absolute top-[38px] sm:top-1/2 left-8 h-1 sm:-translate-y-1/2 bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full z-0 transition-all duration-500 ease-out" style="width: 0%;"></div>
+
+          <!-- 4 Milestone Nodes -->
+          <div class="relative z-10 flex items-center justify-between">
+            
+            <!-- Node 0: Ноябрь 2026 -->
+            <button onclick="selectMilestone(0)" id="node-0" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-indigo-500 text-indigo-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-indigo-950/60 transition-all duration-300 ring-4 ring-indigo-500/30 scale-110">
+                <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+              </div>
+              <div class="mt-3 text-center">
+                <span class="node-date block text-xs sm:text-sm font-bold text-white transition-colors">Ноябрь 2026</span>
+                <span class="node-sub block text-[11px] text-indigo-400 font-medium">Тест старост</span>
+              </div>
+            </button>
+
+            <!-- Node 1: Декабрь 2026 -->
+            <button onclick="selectMilestone(1)" id="node-1" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <div class="mt-3 text-center">
+                <span class="node-date block text-xs sm:text-sm font-bold text-slate-400 transition-colors">Декабрь 2026</span>
+                <span class="node-sub block text-[11px] text-slate-500 font-medium">3–5 пилотов</span>
+              </div>
+            </button>
+
+            <!-- Node 2: Январь 2027 -->
+            <button onclick="selectMilestone(2)" id="node-2" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+                <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+              </div>
+              <div class="mt-3 text-center">
+                <span class="node-date block text-xs sm:text-sm font-bold text-slate-400 transition-colors">Январь 2027</span>
+                <span class="node-sub block text-[11px] text-slate-500 font-medium">Кураторы</span>
+              </div>
+            </button>
+
+            <!-- Node 3: Весна 2027 -->
+            <button onclick="selectMilestone(3)" id="node-3" class="timeline-node group flex flex-col items-center focus:outline-none transition-all cursor-pointer">
+              <div class="node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300">
+                <i data-lucide="smartphone" class="w-5 h-5"></i>
+              </div>
+              <div class="mt-3 text-center">
+                <span class="node-date block text-xs sm:text-sm font-bold text-slate-400 transition-colors">Весна 2027</span>
+                <span class="node-sub block text-[11px] text-slate-500 font-medium">Web & Android</span>
+              </div>
+            </button>
+
+          </div>
         </div>
 
-        <div class="glass-card p-5 rounded-2xl border border-slate-800">
-          <div class="text-xs font-mono font-bold text-slate-400 mb-1">ДЕКАБРЬ 2026</div>
-          <h4 class="font-bold text-white text-sm mb-2">Пилоты в 3–5 группах</h4>
-          <p class="text-xs text-slate-400">Боевое тестирование в группах колледжей и вузов, первые отзывы кураторов.</p>
-        </div>
+      </div>
 
-        <div class="glass-card p-5 rounded-2xl border border-slate-800">
-          <div class="text-xs font-mono font-bold text-slate-400 mb-1">ЯНВАРЬ 2027</div>
-          <h4 class="font-bold text-white text-sm mb-2">Сводка для куратора</h4>
-          <p class="text-xs text-slate-400">Личный кабинет куратора, роль «Заместитель старосты» для страховки.</p>
-        </div>
+      <!-- Milestone Interactive Details Card -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <div id="milestoneCard" class="glass-card rounded-2xl p-6 sm:p-9 border border-indigo-500/30 transition-all duration-300 shadow-xl glow-indigo">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-800 gap-3">
+            <div class="flex items-center gap-3">
+              <div id="milestoneIconBox" class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-lg">
+                <i id="milestoneIcon" data-lucide="clipboard-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span id="milestoneStep" class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400">ЭТАП 1 ИЗ 4 • 20–26 НОЯБРЯ 2026</span>
+                <h4 id="milestoneTitle" class="text-xl sm:text-2xl font-extrabold text-white">Тестирование с реальными старостами</h4>
+              </div>
+            </div>
+            <div id="milestoneBadge" class="self-start sm:self-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>ТЕКУЩИЙ ЭТАП (АКТИВЕН)</span>
+            </div>
+          </div>
 
-        <div class="glass-card p-5 rounded-2xl border border-slate-800">
-          <div class="text-xs font-mono font-bold text-slate-400 mb-1">ВЕСЕННИЙ СЕМЕСТР</div>
-          <h4 class="font-bold text-white text-sm mb-2">Web-панель и Android</h4>
-          <p class="text-xs text-slate-400">Полноценная десктопная панель для деканата и мобильное приложение на том же API.</p>
-        </div>
+          <div class="py-5 space-y-4">
+            <p id="milestoneDesc" class="text-sm sm:text-base text-slate-300 leading-relaxed">
+              Главная цель ноября — собрать честную обратную связь от старост колледжей и вузов через анкетирование и откалибровать работу бота под реальные сообщения от преподавателей.
+            </p>
 
+            <div class="space-y-2.5 pt-2">
+              <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">Что планируется и разрабатывается к этому сроку:</h5>
+              <div id="milestonePoints" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+                <!-- Points injected by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Stepper Buttons -->
+          <div class="pt-5 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="prevMilestone()" id="btnPrev" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed" disabled>
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              <span>Предыдущий этап</span>
+            </button>
+            <span id="milestoneCounter" class="text-xs text-slate-500 font-mono">1 / 4</span>
+            <button onclick="nextMilestone()" id="btnNext" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30">
+              <span>Следующий этап</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
       </div>
 
       <!-- Pricing / Business Model Box -->
@@ -733,6 +819,159 @@
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Roadmap Milestones Data
+    const milestones = [
+      {
+        step: "ЭТАП 1 ИЗ 4 • 20–26 НОЯБРЯ 2026",
+        title: "Тестирование с реальными старостами",
+        icon: "clipboard-check",
+        badge: { text: "ТЕКУЩИЙ ЭТАП (АКТИВЕН)", bg: "bg-emerald-500/10", border: "border-emerald-500/30", textCol: "text-emerald-400", pulse: true },
+        desc: "Главная цель ноября — собрать честную обратную связь от старост колледжей и вузов через анкетирование и откалибровать работу бота под реальные сообщения от преподавателей.",
+        points: [
+          "Проведение анкетирования старост через Google-форму (20–26.11)",
+          "Сбор живых примеров пересылок от преподавателей и настройка парсера",
+          "Финализация сценария премодерации (кнопки «Опубликовать / Исправить»)",
+          "Тестирование базы данных на PostgreSQL и логики окна переклички −10/+15 мин"
+        ]
+      },
+      {
+        step: "ЭТАП 2 ИЗ 4 • ДЕКАБРЬ 2026",
+        title: "Боевые пилоты в 3–5 группах",
+        icon: "users",
+        badge: { text: "В РАЗРАБОТКЕ", bg: "bg-indigo-500/10", border: "border-indigo-500/30", textCol: "text-indigo-400", pulse: false },
+        desc: "Полноценный запуск Telegram-бота «Ритм» в первых пилотных группах колледжей и университетов в боевом учебном процессе.",
+        points: [
+          "Автоматическая отправка утреннего дайджеста в 07:30 в закреп чата группы",
+          "Синхронизация отмен с закрепленным дайджестом в реальном времени",
+          "Ежедневная перекличка на парах в 4 кнопки со статистикой явки",
+          "Экспорт первых ведомостей в .xlsx по команде /export и замер экономии времени"
+        ]
+      },
+      {
+        step: "ЭТАП 3 ИЗ 4 • ЯНВАРЬ 2027",
+        title: "Сводка для куратора и замстаросты",
+        icon: "file-spreadsheet",
+        badge: { text: "ЗАПЛАНИРОВАНО", bg: "bg-amber-500/10", border: "border-amber-500/30", textCol: "text-amber-400", pulse: false },
+        desc: "Расширение функционала для сессионного периода и внедрение ролевой модели для кураторов и заместителей старост.",
+        points: [
+          "Личный кабинет куратора: просмотр посещаемости по нескольким группам потока",
+          "Роль «Заместитель старосты»: страховка прав публикации, если староста болеет",
+          "Адаптация формата Excel-ведомости под строгие стандарты вуза и деканата",
+          "Уведомления о горящих дедлайнах зачетов и курсовых работ"
+        ]
+      },
+      {
+        step: "ЭТАП 4 ИЗ 4 • ВЕСЕННИЙ СЕМЕСТР 2027",
+        title: "Web-панель и Android-приложение",
+        icon: "smartphone",
+        badge: { text: "СТРАТЕГИЧЕСКИЙ РЕЛИЗ", bg: "bg-purple-500/10", border: "border-purple-500/30", textCol: "text-purple-400", pulse: false },
+        desc: "Выход за пределы Telegram: запуск автономной Web-платформы для учебных частей и мобильного приложения с виджетами.",
+        points: [
+          "Десктопная Web-панель для мониторинга 50+ групп деканатом в 1 клик",
+          "Нативное Android-приложение с виджетами расписания на рабочий стол",
+          "Защита от отметок из дома (одноразовые коды пары и QR-коды)",
+          "White-label интеграция под бренды партнерских колледжей и вузов"
+        ]
+      }
+    ];
+
+    let currentMilestone = 0;
+
+    function selectMilestone(idx) {
+      currentMilestone = idx;
+      const m = milestones[idx];
+
+      // Update progress bar
+      const progress = document.getElementById('timelineProgress');
+      const progressPercent = (idx / (milestones.length - 1)) * 100;
+      progress.style.width = progressPercent + '%';
+
+      // Update node styles
+      for (let i = 0; i < milestones.length; i++) {
+        const node = document.getElementById(`node-${i}`);
+        const circle = node.querySelector('.node-circle');
+        const dateText = node.querySelector('.node-date');
+        const subText = node.querySelector('.node-sub');
+
+        if (i === idx) {
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-indigo-500 text-indigo-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg shadow-indigo-950/60 transition-all duration-300 ring-4 ring-indigo-500/30 scale-110";
+          dateText.className = "node-date block text-xs sm:text-sm font-bold text-white transition-colors";
+          subText.className = "node-sub block text-[11px] text-indigo-400 font-medium";
+        } else if (i < idx) {
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-indigo-950/60 border-2 border-indigo-600 text-indigo-300 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300";
+          dateText.className = "node-date block text-xs sm:text-sm font-semibold text-slate-300 transition-colors";
+          subText.className = "node-sub block text-[11px] text-slate-400 font-medium";
+        } else {
+          circle.className = "node-circle w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-slate-700 text-slate-400 font-bold text-xs sm:text-sm flex items-center justify-center shadow-lg transition-all duration-300 group-hover:border-indigo-400 group-hover:text-indigo-300";
+          dateText.className = "node-date block text-xs sm:text-sm font-medium text-slate-400 transition-colors";
+          subText.className = "node-sub block text-[11px] text-slate-500 font-medium";
+        }
+      }
+
+      // Update Card Content with smooth transition
+      const card = document.getElementById('milestoneCard');
+      card.classList.add('opacity-75');
+
+      setTimeout(() => {
+        document.getElementById('milestoneStep').innerText = m.step;
+        document.getElementById('milestoneTitle').innerText = m.title;
+        document.getElementById('milestoneDesc').innerText = m.desc;
+
+        // Badge
+        const badgeEl = document.getElementById('milestoneBadge');
+        badgeEl.className = `self-start sm:self-center px-3 py-1 rounded-full text-xs font-semibold ${m.badge.bg} ${m.badge.textCol} border ${m.badge.border} flex items-center gap-1.5`;
+        badgeEl.innerHTML = (m.badge.pulse ? '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>' : '') + `<span>${m.badge.text}</span>`;
+
+        // Points
+        const pointsContainer = document.getElementById('milestonePoints');
+        pointsContainer.innerHTML = m.points.map(pt => `
+          <div class="flex items-start gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+            <span class="text-indigo-400 font-bold mt-0.5">•</span>
+            <span>${pt}</span>
+          </div>
+        `).join('');
+
+        // Icon
+        const iconBox = document.getElementById('milestoneIconBox');
+        iconBox.innerHTML = `<i data-lucide="${m.icon}" class="w-6 h-6"></i>`;
+        lucide.createIcons({ root: iconBox });
+
+        // Stepper buttons
+        document.getElementById('milestoneCounter').innerText = `${idx + 1} / ${milestones.length}`;
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        if (idx === 0) {
+          btnPrev.disabled = true;
+          btnPrev.className = "px-4 py-2 rounded-xl bg-slate-900 text-slate-600 border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed";
+        } else {
+          btnPrev.disabled = false;
+          btnPrev.className = "px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 text-xs font-medium flex items-center gap-2 transition-all cursor-pointer";
+        }
+
+        if (idx === milestones.length - 1) {
+          btnNext.disabled = true;
+          btnNext.className = "px-4 py-2 rounded-xl bg-slate-900 text-slate-600 border border-slate-800 text-xs font-medium flex items-center gap-2 transition-all opacity-50 cursor-not-allowed";
+        } else {
+          btnNext.disabled = false;
+          btnNext.className = "px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30 cursor-pointer";
+        }
+
+        card.classList.remove('opacity-75');
+      }, 120);
+    }
+
+    function prevMilestone() {
+      if (currentMilestone > 0) selectMilestone(currentMilestone - 1);
+    }
+
+    function nextMilestone() {
+      if (currentMilestone < milestones.length - 1) selectMilestone(currentMilestone + 1);
+    }
+
+    // Initialize first milestone
+    selectMilestone(0);
 
     // Simulator State
     let currentCount = 24;

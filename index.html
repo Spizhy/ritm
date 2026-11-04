@@ -55,10 +55,6 @@
       box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.4);
     }
 
-    .glow-red-intense {
-      box-shadow: 0 0 100px 10px rgba(255, 30, 30, 0.4);
-    }
-
     .gradient-red-border {
       position: relative;
       border-radius: 1.25rem;
@@ -66,25 +62,24 @@
       padding: 1px;
     }
 
-    /* Red Arc Horizon Glow */
-    .red-horizon-glow {
+    /* Red Arc Horizon Styling */
+    .arc-glow-layer {
       position: absolute;
       width: 140%;
       left: -20%;
       height: 380px;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.5) 0%, rgba(220, 38, 38, 0.25) 45%, rgba(0, 0, 0, 0) 75%);
-      filter: blur(40px);
+      background: radial-gradient(ellipse at center, rgba(255, 25, 25, 0.6) 0%, rgba(220, 20, 20, 0.3) 40%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(50px);
       pointer-events-none;
-      z-index: 1;
     }
   </style>
 </head>
-<body class="selection:bg-red-600 selection:text-white">
+<body class="selection:bg-red-600 selection:text-white bg-black">
 
   <!-- Floating Navigation Bar -->
   <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-    <div class="max-w-6xl mx-auto glass rounded-2xl px-5 py-3.5 flex items-center justify-between border border-red-950/40 shadow-2xl">
+    <div class="max-w-6xl mx-auto glass rounded-2xl px-5 py-3.5 flex items-center justify-between border border-red-950/50 shadow-2xl">
       <a href="#" class="flex items-center gap-3 group">
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-700 to-red-500 flex items-center justify-center text-white shadow-lg shadow-red-600/40 group-hover:scale-105 transition-transform">
           <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
@@ -113,57 +108,96 @@
     </div>
   </header>
 
-  <!-- Hero Section (Featuring the Signature Red Arc Horizon Banner) -->
-  <section class="relative pt-24 pb-20 overflow-hidden bg-black">
+  <!-- Hero Section with Organic Red Horizon Gradient Arc -->
+  <section class="relative pt-28 sm:pt-36 pb-20 overflow-hidden bg-black flex flex-col items-center">
     
-    <!-- Hero Main Art Banner Container -->
-    <div class="relative w-full max-w-5xl mx-auto px-4 pt-10 sm:pt-16 pb-6 text-center z-10">
+    <!-- Top Authors Badge -->
+    <div class="relative z-20 flex justify-center mb-6 sm:mb-8">
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-red-500/30 text-xs sm:text-sm text-red-300 shadow-lg shadow-red-950/60">
+        <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+        <span>Made by <strong>Trepet & Jutreyk & Filthness</strong></span>
+        <span class="text-slate-600">•</span>
+        <span class="text-slate-400">Пилотный тест: 20–26 ноября</span>
+      </div>
+    </div>
+
+    <!-- THE RED GRADIENT ARC HORIZON TITLE -->
+    <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center pt-4 sm:pt-8 pb-12 sm:pb-20 select-none">
       
-      <!-- Top Authors Badge -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-red-500/30 text-xs sm:text-sm text-red-300 shadow-lg shadow-red-950/50">
-          <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-          <span>Made by <strong>Trepet & Jutreyk & Filthness</strong></span>
-          <span class="text-slate-600">•</span>
-          <span class="text-slate-400">Пилотный тест: 20–26 ноября</span>
-        </div>
-      </div>
-
-      <!-- Centerpiece Visual Banner: Glowing Red Horizon & Nauryz Wordmark -->
-      <div class="relative max-w-4xl mx-auto rounded-3xl overflow-hidden border border-red-900/40 shadow-2xl glow-red-intense group mb-10">
-        <!-- Main Image -->
-        <img src="assets/ritm-hero.jpg" alt="РИТМ" class="w-full h-auto object-cover transform scale-100 group-hover:scale-[1.01] transition-transform duration-700">
+      <!-- Ambient volumetric red glow behind the arc -->
+      <div class="arc-glow-layer top-10 sm:top-14"></div>
+      
+      <!-- SVG Geometric Red Gradient Arc -->
+      <div class="relative w-full h-[220px] sm:h-[320px] md:h-[380px] flex items-center justify-center overflow-visible">
         
-        <!-- Subtle dark vignette around banner edges to merge seamlessly with page background -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none opacity-80"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black pointer-events-none"></div>
-      </div>
+        <svg class="absolute inset-0 w-full h-full overflow-visible pointer-events-none" viewBox="0 0 1200 420" fill="none" preserveAspectRatio="none">
+          <defs>
+            <!-- Radial Gradient for the planet / dome body -->
+            <radialGradient id="redArcBody" cx="50%" cy="15%" r="65%" fx="50%" fy="10%">
+              <stop offset="0%" stop-color="#ff2222" stop-opacity="1" />
+              <stop offset="20%" stop-color="#dd1111" stop-opacity="0.95" />
+              <stop offset="45%" stop-color="#8a0808" stop-opacity="0.85" />
+              <stop offset="70%" stop-color="#3b0202" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+            </radialGradient>
+            
+            <!-- Intense neon glow filter for the horizon rim -->
+            <filter id="neonRimGlow" x="-20%" y="-40%" width="140%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blurWide" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blurSharp" />
+              <feMerge>
+                <feMergeNode in="blurWide" />
+                <feMergeNode in="blurSharp" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
 
-      <!-- Main Headline & Subtitle -->
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-[1.15] text-white">
-          У старосты много задач, <br>
-          <span class="font-nauryz text-red-500 tracking-wider">не так ли?</span>
-        </h1>
-        <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl mx-auto">
-          Отмены, расписание и перекличка работают сами. Умный Telegram-бот, который снимает со старост ежедневную рутину (≈ 50 минут каждый день).
-        </p>
+          <!-- Dome body: smooth convex curve across full width -->
+          <path d="M-200,450 C250,90 950,90 1400,450 L1400,500 L-200,500 Z" fill="url(#redArcBody)" />
 
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
-            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-            <span>Пройти опрос для старост</span>
-          </a>
-          <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass hover:bg-slate-900 text-slate-200 font-medium px-7 py-4 rounded-xl border border-red-900/40 transition-all hover:scale-[1.02]">
-            <i data-lucide="send" class="w-5 h-5 text-red-400"></i>
-            <span>Написать в Telegram @spizhy</span>
-          </a>
+          <!-- Neon Red Glowing Crest Line -->
+          <path d="M-150,450 C250,90 950,90 1350,450" stroke="#ff2a2a" stroke-width="6" filter="url(#neonRimGlow)" fill="none" opacity="0.95" />
+          <path d="M-100,450 C250,90 950,90 1300,450" stroke="#ff7777" stroke-width="2.5" fill="none" opacity="0.85" />
+        </svg>
+
+        <!-- The Title "РИТМ" in NauryzRedKeds font sitting right over the Red Horizon Arc -->
+        <div class="relative z-10 flex flex-col items-center justify-center text-center mt-2 sm:mt-4">
+          <span class="font-nauryz text-7xl sm:text-9xl md:text-[145px] lg:text-[165px] text-white tracking-[0.06em] leading-none drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] drop-shadow-[0_0_50px_rgba(255,255,255,0.35)]">
+            РИТМ
+          </span>
         </div>
+
       </div>
 
-      <!-- Live Interactive Product Simulator (Red / Obsidian Theme) -->
-      <div class="max-w-4xl mx-auto gradient-red-border shadow-2xl glow-red text-left">
+    </div>
+
+    <!-- Tagline & Description flowing seamlessly beneath the Arc -->
+    <div class="relative z-20 text-center max-w-3xl mx-auto px-4 -mt-4 sm:-mt-8">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-[1.15] text-white">
+        У старосты много задач, <br>
+        <span class="font-nauryz text-red-500 tracking-wider">не так ли?</span>
+      </h1>
+      <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl mx-auto">
+        Отмены, расписание и перекличка работают сами. Умный Telegram-бот, который снимает со старост ежедневную рутину (≈ 50 минут каждый день).
+      </p>
+
+      <!-- CTA Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="https://forms.gle/CSw2EMXWUU61QSm69" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+          <span>Пройти опрос для старост</span>
+        </a>
+        <a href="https://t.me/spizhy" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass hover:bg-slate-900 text-slate-200 font-medium px-7 py-4 rounded-xl border border-red-900/40 transition-all hover:scale-[1.02]">
+          <i data-lucide="send" class="w-5 h-5 text-red-400"></i>
+          <span>Написать в Telegram @spizhy</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Live Interactive Product Simulator (Red / Obsidian Theme) -->
+    <div class="relative z-20 w-full max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="gradient-red-border shadow-2xl glow-red text-left">
         <div class="bg-slate-950/95 rounded-2xl p-4 sm:p-7 border border-red-950/40">
           
           <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
@@ -297,8 +331,8 @@
 
         </div>
       </div>
-
     </div>
+
   </section>
 
   <!-- Section: Problem & Interview Validation -->
@@ -683,7 +717,7 @@
               <span>Предыдущий этап</span>
             </button>
             <span id="milestoneCounter" class="text-xs text-slate-500 font-mono">1 / 4</span>
-            <button onclick="nextMilestone()" id="btnNext" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-red-600/30 cursor-pointer">
+            <button onclick="nextMilestone()" id="btnNext" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-red-600/40 cursor-pointer">
               <span>Следующий этап</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
@@ -775,7 +809,7 @@
     </div>
   </section>
 
-  <!-- Big Call to Action Banner (Red Eclipse Aesthetic) -->
+  <!-- Big Call to Action Banner (Red Horizon Aesthetic) -->
   <section class="py-20 border-t border-slate-900 relative overflow-hidden bg-black">
     
     <!-- Red Ambient Glow -->
